@@ -18,6 +18,10 @@
     header img { display: block; width: 100%; max-height: 420px; object-fit: cover; border-radius: 10px; }
     .ingredients { list-style: none; }
     .ingredients li { display: flex; align-items: baseline; padding: 4px 0; gap: 8px; }
+    .ingredients input[type="checkbox"] { margin: 0; cursor: pointer; }
+    .ingredients li.checked .name,
+    .ingredients li.checked .qty,
+    .ingredients li.checked .cost { opacity: 0.4; text-decoration: line-through; }
     .name { flex: 1; }
     .link { font-size: 13px; margin-left: 4px; }
     .qty, .cost { font-size: 15px; text-align: right; }
@@ -43,11 +47,11 @@
     <h2>Ingredients</h2>
     
     <ul class="ingredients">
-      <li><span class="name">Penne Pasta <a class="link" href="https://www.carrefouregypt.com/mafegy/en/short-cut-pasta/royal-pasta-penne-1k/p/469062" target="_blank">[link]</a></span><span class="qty">500 g</span><span class="cost">EGP 17</span></li>
-      <li><span class="name">Chicken Breast <a class="link" href="https://www.carrefouregypt.com/mafegy/en/poultry-offals/chicken-breast-fillet-kg/p/31776" target="_blank">[link]</a></span><span class="qty">500 g</span><span class="cost">EGP 131</span></li>
-      <li><span class="name">Potato <a class="link" href="https://www.carrefouregypt.com/mafegy/en/potato/a-potato-for-frying/p/157967" target="_blank">[link]</a></span><span class="qty">500 g</span><span class="cost">EGP 6</span></li>
-      <li><span class="name">Oil <a class="link" href="https://www.carrefouregypt.com/mafegy/en/sunflower-oil/afia-sunflower-oil-0-7l/p/644802" target="_blank">[link]</a></span><span class="qty">200 ml</span><span class="cost">EGP 22</span></li>
-      <li><span class="name">Cooking Cream <a class="link" href="https://www.carrefouregypt.com/mafegy/en/cooking-cream/juhayna-cooking-cream-500m/p/181147" target="_blank">[link]</a></span><span class="qty">500 ml</span><span class="cost">EGP 144</span></li>
+      <li><input type="checkbox"><span class="name">Penne Pasta <a class="link" href="https://www.carrefouregypt.com/mafegy/en/short-cut-pasta/royal-pasta-penne-1k/p/469062" target="_blank">[link]</a></span><span class="qty">500 g</span><span class="cost">EGP 17</span></li>
+      <li><input type="checkbox"><span class="name">Chicken Breast <a class="link" href="https://www.carrefouregypt.com/mafegy/en/poultry-offals/chicken-breast-fillet-kg/p/31776" target="_blank">[link]</a></span><span class="qty">500 g</span><span class="cost">EGP 131</span></li>
+      <li><input type="checkbox"><span class="name">Potato <a class="link" href="https://www.carrefouregypt.com/mafegy/en/potato/a-potato-for-frying/p/157967" target="_blank">[link]</a></span><span class="qty">500 g</span><span class="cost">EGP 6</span></li>
+      <li><input type="checkbox"><span class="name">Oil <a class="link" href="https://www.carrefouregypt.com/mafegy/en/sunflower-oil/afia-sunflower-oil-0-7l/p/644802" target="_blank">[link]</a></span><span class="qty">200 ml</span><span class="cost">EGP 22</span></li>
+      <li><input type="checkbox"><span class="name">Cooking Cream <a class="link" href="https://www.carrefouregypt.com/mafegy/en/cooking-cream/juhayna-cooking-cream-500m/p/181147" target="_blank">[link]</a></span><span class="qty">500 ml</span><span class="cost">EGP 144</span></li>
       <li><span class="name">Chicken Spices</span></li>
       <li><span class="name">Salt</span></li>
       <li><span class="name">Garlic Powder</span></li>
@@ -61,5 +65,10 @@
 4. Add 500 ml cooking cream to the chicken, stir, and let it simmer for a few minutes.
 5. Add the potatoes and pasta, toss everything together, and serve.</div>
   </article>
+  <script>
+    document.querySelectorAll('.ingredients input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', () => cb.parentElement.classList.toggle('checked', cb.checked));
+    });
+  </script>
 </body>
 </html>

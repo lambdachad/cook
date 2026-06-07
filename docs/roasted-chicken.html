@@ -18,6 +18,10 @@
     header img { display: block; width: 100%; max-height: 420px; object-fit: cover; border-radius: 10px; }
     .ingredients { list-style: none; }
     .ingredients li { display: flex; align-items: baseline; padding: 4px 0; gap: 8px; }
+    .ingredients input[type="checkbox"] { margin: 0; cursor: pointer; }
+    .ingredients li.checked .name,
+    .ingredients li.checked .qty,
+    .ingredients li.checked .cost { opacity: 0.4; text-decoration: line-through; }
     .name { flex: 1; }
     .link { font-size: 13px; margin-left: 4px; }
     .qty, .cost { font-size: 15px; text-align: right; }
@@ -43,17 +47,17 @@
     <h2>Ingredients</h2>
     
     <ul class="ingredients">
-      <li><span class="name">Whole Chicken <a class="link" href="https://www.carrefouregypt.com/mafegy/en/whole-chicken/fyonka-whole-chicken-1000-1100g/p/658409" target="_blank">[link]</a></span><span class="qty">1</span><span class="cost">EGP 170</span></li>
-      <li><span class="name">Oil <a class="link" href="https://www.carrefouregypt.com/mafegy/en/sunflower-oil/afia-sunflower-oil-0-7l/p/644802" target="_blank">[link]</a></span><span class="qty">50 ml</span><span class="cost">EGP 6</span></li>
-      <li><span class="name">Lemon <a class="link" href="https://www.carrefouregypt.com/mafegy/en/lemon/a-lemon-balady-net/p/425250" target="_blank">[link]</a></span><span class="qty">1</span><span class="cost">EGP 2</span></li>
-      <li><span class="name">Onion <a class="link" href="https://www.carrefouregypt.com/mafegy/en/onions/a-onion-white/p/32763" target="_blank">[link]</a></span><span class="qty">150 g</span><span class="cost">EGP 3</span></li>
-      <li><span class="name">Carrot <a class="link" href="https://www.carrefouregypt.com/mafegy/en/carrot/carrot-500gr/p/423292" target="_blank">[link]</a></span><span class="qty">200 g</span><span class="cost">EGP 8</span></li>
-      <li><span class="name">Potato <a class="link" href="https://www.carrefouregypt.com/mafegy/en/potato/a-potato-for-frying/p/157967" target="_blank">[link]</a></span><span class="qty">500 g</span><span class="cost">EGP 6</span></li>
-      <li><span class="name">Salt</span><span class="qty">2 tbsp</span></li>
-      <li><span class="name">Paprika</span><span class="qty">1 tbsp</span></li>
-      <li><span class="name">Garlic Powder</span><span class="qty">1 tbsp</span></li>
-      <li><span class="name">Onion Powder</span><span class="qty">1 tbsp</span></li>
-      <li><span class="name">Dried Oregano</span><span class="qty">1 tsp</span></li>
+      <li><input type="checkbox"><span class="name">Whole Chicken <a class="link" href="https://www.carrefouregypt.com/mafegy/en/whole-chicken/fyonka-whole-chicken-1000-1100g/p/658409" target="_blank">[link]</a></span><span class="qty">1</span><span class="cost">EGP 170</span></li>
+      <li><input type="checkbox"><span class="name">Oil <a class="link" href="https://www.carrefouregypt.com/mafegy/en/sunflower-oil/afia-sunflower-oil-0-7l/p/644802" target="_blank">[link]</a></span><span class="qty">50 ml</span><span class="cost">EGP 6</span></li>
+      <li><input type="checkbox"><span class="name">Lemon <a class="link" href="https://www.carrefouregypt.com/mafegy/en/lemon/a-lemon-balady-net/p/425250" target="_blank">[link]</a></span><span class="qty">1</span><span class="cost">EGP 2</span></li>
+      <li><input type="checkbox"><span class="name">Onion <a class="link" href="https://www.carrefouregypt.com/mafegy/en/onions/a-onion-white/p/32763" target="_blank">[link]</a></span><span class="qty">150 g</span><span class="cost">EGP 3</span></li>
+      <li><input type="checkbox"><span class="name">Carrot <a class="link" href="https://www.carrefouregypt.com/mafegy/en/carrot/carrot-500gr/p/423292" target="_blank">[link]</a></span><span class="qty">200 g</span><span class="cost">EGP 8</span></li>
+      <li><input type="checkbox"><span class="name">Potato <a class="link" href="https://www.carrefouregypt.com/mafegy/en/potato/a-potato-for-frying/p/157967" target="_blank">[link]</a></span><span class="qty">500 g</span><span class="cost">EGP 6</span></li>
+      <li><input type="checkbox"><span class="name">Salt</span><span class="qty">2 tbsp</span></li>
+      <li><input type="checkbox"><span class="name">Paprika</span><span class="qty">1 tbsp</span></li>
+      <li><input type="checkbox"><span class="name">Garlic Powder</span><span class="qty">1 tbsp</span></li>
+      <li><input type="checkbox"><span class="name">Onion Powder</span><span class="qty">1 tbsp</span></li>
+      <li><input type="checkbox"><span class="name">Dried Oregano</span><span class="qty">1 tsp</span></li>
       <li class="total"><span class="name">Total</span><span class="cost">EGP 195</span></li>
     </ul>
 
@@ -67,5 +71,10 @@
 7. Preheat oven to 200°C. Roast for 10 minutes, then lower to 180°C and roast until the breast reaches 75°C.
 8. Let it rest, then cut and pour the pan juices over the meat and vegetables.</div>
   </article>
+  <script>
+    document.querySelectorAll('.ingredients input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', () => cb.parentElement.classList.toggle('checked', cb.checked));
+    });
+  </script>
 </body>
 </html>

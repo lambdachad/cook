@@ -18,6 +18,10 @@
     header img { display: block; width: 100%; max-height: 420px; object-fit: cover; border-radius: 10px; }
     .ingredients { list-style: none; }
     .ingredients li { display: flex; align-items: baseline; padding: 4px 0; gap: 8px; }
+    .ingredients input[type="checkbox"] { margin: 0; cursor: pointer; }
+    .ingredients li.checked .name,
+    .ingredients li.checked .qty,
+    .ingredients li.checked .cost { opacity: 0.4; text-decoration: line-through; }
     .name { flex: 1; }
     .link { font-size: 13px; margin-left: 4px; }
     .qty, .cost { font-size: 15px; text-align: right; }
@@ -43,8 +47,8 @@
     <h2>Ingredients</h2>
     
     <ul class="ingredients">
-      <li><span class="name">Eggs <a class="link" href="https://www.carrefouregypt.com/mafegy/en/white-eggs/royal-white-eggs-30-pcs/p/659534" target="_blank">[link]</a></span><span class="qty">6</span><span class="cost">EGP 22</span></li>
-      <li><span class="name">Butter <a class="link" href="https://www.carrefouregypt.com/mafegy/en/mixed-butter/fern-mixed-butter-1k/p/195679" target="_blank">[link]</a></span><span class="qty">25 g</span><span class="cost">EGP 4</span></li>
+      <li><input type="checkbox"><span class="name">Eggs <a class="link" href="https://www.carrefouregypt.com/mafegy/en/white-eggs/royal-white-eggs-30-pcs/p/659534" target="_blank">[link]</a></span><span class="qty">6</span><span class="cost">EGP 22</span></li>
+      <li><input type="checkbox"><span class="name">Butter <a class="link" href="https://www.carrefouregypt.com/mafegy/en/mixed-butter/fern-mixed-butter-1k/p/195679" target="_blank">[link]</a></span><span class="qty">25 g</span><span class="cost">EGP 4</span></li>
       <li><span class="name">Salt</span></li>
       <li class="total"><span class="name">Total</span><span class="cost">EGP 26</span></li>
     </ul>
@@ -54,5 +58,10 @@
 2. Melt 25 g butter in a pan over low heat.
 3. Add the eggs and stir gently until just set, about 5 minutes.</div>
   </article>
+  <script>
+    document.querySelectorAll('.ingredients input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', () => cb.parentElement.classList.toggle('checked', cb.checked));
+    });
+  </script>
 </body>
 </html>

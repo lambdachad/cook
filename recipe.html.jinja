@@ -18,6 +18,10 @@
     header img { display: block; width: 100%; max-height: 420px; object-fit: cover; border-radius: 10px; }
     .ingredients { list-style: none; }
     .ingredients li { display: flex; align-items: baseline; padding: 4px 0; gap: 8px; }
+    .ingredients input[type="checkbox"] { margin: 0; cursor: pointer; }
+    .ingredients li.checked .name,
+    .ingredients li.checked .qty,
+    .ingredients li.checked .cost { opacity: 0.4; text-decoration: line-through; }
     .name { flex: 1; }
     .link { font-size: 13px; margin-left: 4px; }
     .qty, .cost { font-size: 15px; text-align: right; }
@@ -49,14 +53,14 @@
       {%- if info.price and info.quantity %}
       {%- set cost = (ingredient.quantity.value | float) * (info.price | float) / (info.quantity | float) %}
       {%- set total.value = total.value + cost %}
-      <li><span class="name">{{ name }}{% if info.url %} <a class="link" href="{{ info.url }}" target="_blank">[link]</a>{% endif %}</span><span class="qty">{{ ingredient.quantity }}</span><span class="cost">EGP {{ cost | round | int }}</span></li>
+      <li><input type="checkbox"><span class="name">{{ name }}{% if info.url %} <a class="link" href="{{ info.url }}" target="_blank">[link]</a>{% endif %}</span><span class="qty">{{ ingredient.quantity }}</span><span class="cost">EGP {{ cost | round | int }}</span></li>
       {%- endif %}
       {%- endfor %}
       {%- for ingredient in ingredients if ingredient.quantity %}
       {%- set info = db('ingredients.' ~ ingredient.name) %}
       {%- set name = info.item | default(ingredient.name | title) %}
       {%- if not (info.price and info.quantity) %}
-      <li><span class="name">{{ name }}</span><span class="qty">{{ ingredient.quantity }}</span></li>
+      <li><input type="checkbox"><span class="name">{{ name }}</span><span class="qty">{{ ingredient.quantity }}</span></li>
       {%- endif %}
       {%- endfor %}
       {%- for ingredient in ingredients if not ingredient.quantity %}
@@ -70,5 +74,10 @@
       {%- for section in sections %}{{ section | replace("= " ~ metadata.title, "") | replace("= Recipe", "") | replace("\n\n", "\n") | trim }}{% endfor -%}
     </div>
   </article>
+  <script>
+    document.querySelectorAll('.ingredients input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', () => cb.parentElement.classList.toggle('checked', cb.checked));
+    });
+  </script>
 </body>
 </html>
