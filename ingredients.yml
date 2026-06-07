@@ -1,33 +1,33 @@
-eggs:
-    item: Eggs
+egg:
+    item: Egg
     url: https://www.carrefouregypt.com/mafegy/en/white-eggs/royal-white-eggs-30-pcs/p/659534
     price: 109.99
     quantity: 30
     unit: egg
 
-butter:
-    item: Butter
+smør:
+    item: Smør
     url: https://www.carrefouregypt.com/mafegy/en/mixed-butter/fern-mixed-butter-1k/p/195679
     price: 158.99
     quantity: 1000
     unit: g
 
-whole chicken:
-    item: Whole Chicken
+hel kylling:
+    item: Hel kylling
     url: https://www.carrefouregypt.com/mafegy/en/whole-chicken/fyonka-whole-chicken-1000-1100g/p/658409
     price: 169.99
     quantity: 1
     unit: chicken
 
-lemon:
-    item: Lemon
+sitron:
+    item: Sitron
     url: https://www.carrefouregypt.com/mafegy/en/lemon/a-lemon-balady-net/p/425250
     price: 47.00
     quantity: 20
     unit: lemon
 
-oil:
-    item: Oil
+olje:
+    item: Olje
     url: https://www.carrefouregypt.com/mafegy/en/sunflower-oil/afia-sunflower-oil-0-7l/p/644802
     price: 77.99
     quantity: 700
@@ -40,36 +40,36 @@ pasta:
     quantity: 1000
     unit: g
 
-chicken breast:
-    item: Chicken Breast
+kyllingbryst:
+    item: Kyllingbryst
     url: https://www.carrefouregypt.com/mafegy/en/poultry-offals/chicken-breast-fillet-kg/p/31776
     price: 131.00
     quantity: 500
     unit: g
 
-potatoes:
-    item: Potato
+poteter:
+    item: Poteter
     url: https://www.carrefouregypt.com/mafegy/en/potato/a-potato-for-frying/p/157967
     price: 6.25
     quantity: 500
     unit: g
 
-cooking cream:
-    item: Cooking Cream
+matfløte:
+    item: Matfløte
     url: https://www.carrefouregypt.com/mafegy/en/cooking-cream/juhayna-cooking-cream-500m/p/181147
     price: 143.99
     quantity: 500
     unit: ml
 
-carrot:
-    item: Carrot
+gulrot:
+    item: Gulrot
     url: https://www.carrefouregypt.com/mafegy/en/carrot/carrot-500gr/p/423292
     price: 20.99
     quantity: 500
     unit: g
 
-onion:
-    item: Onion
+løk:
+    item: Løk
     url: https://www.carrefouregypt.com/mafegy/en/onions/a-onion-white/p/32763
     price: 8.50
     quantity: 500

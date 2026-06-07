@@ -15,7 +15,7 @@ done
 # Build index.html
 cat > docs/index.html <<'HEADER'
 <!doctype html>
-<html lang="en">
+<html lang="no">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +25,7 @@ cat > docs/index.html <<'HEADER'
   <link rel="icon" href="favicon.svg">
   <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
-  <title>Recipes</title>
+  <title>Oppskrifter</title>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -48,7 +48,7 @@ cat > docs/index.html <<'HEADER'
 </head>
 <body>
   <main>
-    <h1>Recipes</h1>
+    <h1>Oppskrifter</h1>
     <div class="grid">
 HEADER
 

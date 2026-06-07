@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="no">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,14 +43,14 @@
 </head>
 <body>
   <article>
-    <a href="index.html">Recipes</a>
+    <a href="index.html">Oppskrifter</a>
 
     <header>
       <h1>{{ metadata.title }}</h1>
       {% if metadata.image %}<img src="{{ metadata.image }}" alt="{{ metadata.title }}">{% endif %}
     </header>
 
-    <h2>Ingredients</h2>
+    <h2>Ingredienser</h2>
     {% set total = namespace(value=0) %}
     <ul class="ingredients">
       {%- for ingredient in ingredients if ingredient.quantity %}
@@ -72,10 +72,10 @@
       {%- for ingredient in ingredients if not ingredient.quantity %}
       <li><input type="checkbox"><span class="name">{{ ingredient.name | title }}</span></li>
       {%- endfor %}
-      <li class="total"><span class="name">Total</span><span class="cost">EGP {{ total.value | round | int }}</span></li>
+      <li class="total"><span class="name">Totalt</span><span class="cost">EGP {{ total.value | round | int }}</span></li>
     </ul>
 
-    <h2>Steps</h2>
+    <h2>Fremgangsmåte</h2>
     <div class="steps">
       {%- for section in sections %}{{ section | replace("= " ~ metadata.title, "") | replace("= Recipe", "") | replace("\n\n", "\n") | trim }}{% endfor -%}
     </div>

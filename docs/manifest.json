@@ -1,7 +1,7 @@
 {
-  "name": "Recipes",
-  "short_name": "Recipes",
-  "start_url": "/",
+  "name": "Oppskrifter",
+  "short_name": "Oppskrifter",
+  "start_url": "/oppskrifter/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#222222",
